@@ -1,0 +1,33 @@
+name: Bulk GPT-4o-Mini
+slug: bulk-gpt-4o-mini
+description: >-
+  Allows you to run GPT-4o-mini on a large number of text inputs at once.
+total_rows: 10
+total_columns: 26
+columns:
+  - col_letter: A
+    title: Input
+    cell_type: 0
+  - col_letter: B
+    cell_type: 0
+    title: GPT-4o-Mini Output
+    formula:
+      type: 3
+      data:
+        input:
+          input_message: "{{A}}"
+        config:
+          seed: null
+          objref: false
+          max_tokens: 100
+          max_history: 5
+          temperature: 0.7
+          retain_history: false
+          system_message: "You are a helpful assistant."
+          provider_config:
+            model: gpt-4o-mini
+            provider: openai
+        provider_slug: promptly
+        processor_slug: llm
+        output_template:
+          jsonpath: "$.text"

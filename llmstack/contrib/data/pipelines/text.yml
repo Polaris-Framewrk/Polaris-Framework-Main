@@ -1,0 +1,16 @@
+name: Text
+slug: text
+description: Read data from a text box
+pipeline:
+  source:
+    slug: text
+    provider_slug: promptly
+  transformations:
+    - slug: splitter
+      provider_slug: unstructured
+  embedding:
+    slug: embeddings-generator
+    provider_slug: promptly
+  destination:
+    slug: vector-store
+    provider_slug: promptly

@@ -1,0 +1,16 @@
+name: URL
+slug: url
+description: Read data from a website URL
+pipeline:
+  source:
+    slug: url
+    provider_slug: promptly
+  transformations:
+    - slug: splitter
+      provider_slug: unstructured
+  embedding:
+    slug: embeddings-generator
+    provider_slug: promptly
+  destination:
+    slug: vector-store
+    provider_slug: promptly

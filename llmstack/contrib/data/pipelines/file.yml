@@ -1,0 +1,16 @@
+name: File
+slug: file
+description: Read data from a file
+pipeline:
+  source:
+    slug: file
+    provider_slug: promptly
+  transformations:
+    - slug: splitter
+      provider_slug: unstructured
+  embedding:
+    slug: embeddings-generator
+    provider_slug: promptly
+  destination:
+    slug: vector-store
+    provider_slug: promptly
